@@ -1,0 +1,50 @@
+// See https://aka.ms/new-console-template for more information
+
+int monstersHealth = 10;
+int herosHealth = 10;
+Random heroStrike = new Random();
+int strike = 0 ;
+Random monsterStrike = new Random();
+int monStrike = 0;
+
+do
+{
+    strike = monsterStrike.Next(1,10);
+    monstersHealth-=strike;
+    Console.WriteLine($"Monster was damaged and lost {strike} health and now has {monstersHealth} health.");
+
+    monStrike = heroStrike.Next(1,10);
+    herosHealth-=monStrike;
+    Console.WriteLine($"Hero was damaged and lost {monStrike} health and now has {herosHealth} health.");
+
+    
+} while (monstersHealth>=0 | herosHealth>=0);
+
+if (monstersHealth<=0)
+    Console.WriteLine("\t***Hero Wins***");
+
+else
+    Console.WriteLine("\t***Hero Lost***");
+
+
+
+int hero = 10;
+int monster = 10;
+
+Random dice = new Random();
+
+do
+{
+    int roll = dice.Next(1, 11);
+    monster -= roll;
+    Console.WriteLine($"Monster was damaged and lost {roll} health and now has {monster} health.");
+
+    if (monster <= 0) continue;
+
+    roll = dice.Next(1, 11);
+    hero -= roll;
+    Console.WriteLine($"Hero was damaged and lost {roll} health and now has {hero} health.");
+
+} while (hero > 0 && monster > 0);
+
+Console.WriteLine(hero > monster ? "Hero wins!" : "Monster wins!");
