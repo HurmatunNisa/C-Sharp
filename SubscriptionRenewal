@@ -1,0 +1,24 @@
+// See https://aka.ms/new-console-template for more information
+using static System.Console;
+Random random = new Random();
+int daysUntilExpiration = random.Next(12);
+int discountPercentage = 0;
+
+WriteLine(daysUntilExpiration);
+
+if(daysUntilExpiration <=5)
+{
+ WriteLine($"Your subscription expires in {daysUntilExpiration} days.\nRenew now and save 10%!");
+}
+else if(daysUntilExpiration ==1)
+{
+ WriteLine("Your subscription expires within a days.\nRenew now and save 10%!");
+}
+else if(daysUntilExpiration ==0)
+{
+ WriteLine("Your subscription has expired");
+}
+else if(daysUntilExpiration <=10)
+{
+ WriteLine("Your subscription will expire soon. Renew now!");
+}
