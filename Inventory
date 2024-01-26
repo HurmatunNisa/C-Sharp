@@ -1,0 +1,18 @@
+// See https://aka.ms/new-console-template for more information
+/*string[] names = {"Robin" , "Luffy" , "Zorro"};
+foreach (string item in names)
+{
+    Console.WriteLine(item);
+}*/
+
+int bin = 0;
+int sum = 0;
+int[] inventory = { 200, 450, 700, 175, 250};
+
+foreach(int num in inventory){
+sum+=num;
+bin++;
+Console.WriteLine($"Bin {bin} = {num} items (Running total: {sum})");
+}
+
+Console.WriteLine($"We have {sum} items in inventory.");
