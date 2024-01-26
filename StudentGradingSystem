@@ -1,0 +1,176 @@
+using System;
+
+// initialize variables - graded assignments 
+/*int currentAssignments = 5;
+int[] sophiaScores = {90,86,87,98,100};
+int[] andrewScores = {92,89,81,96,90};
+int[] emmaScores = {90,85,87,98,68};
+int[] loganScores = {90,95,87,88,96};
+
+string[] names = {"Sophia", "Andrew", "Emma", "Logan"};
+foreach (string name in names)
+{
+    if(name=="Sophia"){
+
+    int sophiaSum = 0;
+    decimal sophiaScore;
+
+    foreach(int score in sophiaScores){
+    sophiaSum+=score;
+    }
+
+    sophiaScore = (decimal)sophiaSum / currentAssignments;
+
+    Console.WriteLine("Sophia:\t\t" + sophiaScore + "\t-A");
+
+    }
+
+    else if(name=="Andrew"){
+    int andrewSum = 0;
+    decimal andrewScore;
+    foreach(int score in andrewScores){
+    andrewSum+=score;
+    }
+
+    andrewScore = (decimal)andrewSum / currentAssignments;
+
+    Console.WriteLine("Andrew:\t\t" + andrewScore + "\tB");
+
+    }
+
+    else if(name=="Emma"){
+    int emmaSum = 0;
+    decimal emmaScore;
+    foreach(int score in emmaScores){
+    emmaSum+=score;
+    }
+
+    emmaScore = (decimal)emmaSum / currentAssignments;
+
+    Console.WriteLine("Emma:\t\t" + emmaScore + "\tB");
+
+    }
+
+    else if(name=="Logan"){
+    int loganSum = 0;
+    decimal loganScore;
+    foreach(int score in loganScores){
+    loganSum+=score;
+    }
+
+    loganScore = (decimal)loganSum / currentAssignments;
+
+    Console.WriteLine("Logan:\t\t" +loganScore + "\tB");
+
+    }
+
+}*/
+
+// initialize variables - graded assignments 
+int examAssignments = 5;
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+int[] beckyScores = new int[] { 92, 91, 90, 91, 92, 92, 92 };
+int[] chrisScores = new int[] { 84, 86, 88, 90, 92, 94, 96, 98 };
+int[] ericScores = new int[] { 80, 90, 100, 80, 90, 100, 80, 90 };
+int[] gregorScores = new int[] { 91, 91, 91, 91, 91, 91, 91 };    
+
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan", "Becky", "Chris", "Eric", "Gregor" };
+
+int[] studentScores = new int[10];
+
+// Write the Report Header to the console
+Console.WriteLine("Student\t\tScore\t\tTotal\t\tGrade\t\tExtra");
+
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        studentScores = loganScores;
+    
+    else if (currentStudent == "Becky")
+    studentScores = beckyScores;
+
+    else if (currentStudent == "Chris")
+        studentScores = chrisScores;
+
+    else if (currentStudent == "Eric")
+        studentScores = ericScores;
+
+    else if (currentStudent == "Gregor")
+        studentScores = gregorScores;
+    else
+        continue;
+
+    // initialize/reset the sum of scored assignments
+    int sumAssignmentScores = 0;
+
+    decimal examScore=0; 
+    int numberedScore=0;
+    decimal extraScore = 0;
+
+    // initialize/reset the calculated average of exam + extra credit scores
+    decimal currentStudentGrade = 0;
+
+     int gradedAssignments = 0;
+
+    foreach (int score in studentScores)
+    {
+       gradedAssignments += 1;
+
+        if (gradedAssignments <= examAssignments)
+            // add the exam score to the sum
+            {sumAssignmentScores += score;
+             examScore += score;}
+
+        else
+            // add the extra credit points to the sum - bonus points equal to 10% of an exam score
+            sumAssignmentScores += score / 10;
+            
+    }
+
+    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+    examScore = (decimal)(examScore) / examAssignments;
+
+    
+
+    string Grade ="";
+    if (currentStudentGrade>=95)
+        Grade="A+";
+
+    else if (currentStudentGrade>=90)
+        Grade="A-";
+
+    else if (currentStudentGrade>=80)
+        Grade="B";
+
+    else if (currentStudentGrade>=70)
+        Grade="C";
+
+    else if (currentStudentGrade>=60)
+        Grade="D";
+
+    else if (currentStudentGrade>=500)
+        Grade="E";
+
+    else if (currentStudentGrade<50)
+        Grade="F";
+    numberedScore=(int)examScore;
+    extraScore = (decimal)currentStudentGrade-examScore;
+    Console.WriteLine($"{currentStudent}\t\t{examScore}\t\t{currentStudentGrade}\t\t{Grade}\t\t{numberedScore} ({extraScore} pts)");
+}
+
